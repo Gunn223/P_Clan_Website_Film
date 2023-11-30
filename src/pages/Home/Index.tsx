@@ -22,7 +22,7 @@ const Index = () => {
     <div>
       <Navbar />
       <Jumbotron />
-      <div className="bg-slate-800">
+      <div className="bg-[#0D0C11]">
         <div className="m-auto w-[1140px] flex items-center ">
           <button
             onClick={scrollLeft}

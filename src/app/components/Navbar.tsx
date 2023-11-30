@@ -24,7 +24,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`bg-gray-800 p-4 ${isScrolled ? 'border-b border-gray-700 opacity-80 fixed top-0 right-0 left-0' : ''}`}>
+    <nav
+      className={`bg-gray-800 p-4 ${
+        isScrolled
+          ? 'border-b border-gray-700 opacity-80 fixed z-10 top-0 right-0 left-0'
+          : 'fixed z-10 top-0 right-0 left-0'
+      }`}>
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <img
