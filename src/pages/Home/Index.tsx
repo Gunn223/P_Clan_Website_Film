@@ -60,6 +60,7 @@ const Index = () => {
     setStartIndex(startIndex - itemsPerPage);
     setEndIndex(endIndex - itemsPerPage);
     Setcount(count - 1);
+    
     setEndpages(endPages - 20);
     if (endPages <= countPerPage) {
       setCountPerPage(countPerPage - 20);
