@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Card = () => {
+interface CardType {
+  img: string;
+  title: string;
+  ratingFilm: string;
+}
+
+const Card: React.FC<CardType> = ({ img, title, ratingFilm }) => {
+  // console.log('5data', img, title, ratingFilm);
   const [rating, setRating] = useState(5);
+
+  // Efek untuk memantau perubahan ratingFilm
+  useEffect(() => {
+    // Jika ratingFilm berupa string, ubah menjadi angka
+    const numericRatingFilm = parseInt(ratingFilm, 10);
+    setRating(numericRatingFilm);
+  }, [ratingFilm]);
 
   const handleRatingChange = (newRating: number) => {
     setRating(newRating);
@@ -10,8 +24,7 @@ const Card = () => {
     <div
       className="bg-cover w-[234px] h-[336px] rounded-md flex flex-wrap"
       style={{
-        backgroundImage:
-          'url("https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+        backgroundImage: `url(${`https://image.tmdb.org/t/p/original${img}`})`,
       }}>
       <div className=" h-full flex  items-start justify-end flex-col p-6">
         <h1 className="text-white w-16 h-6 text-center rounded-sm bg-red-600">Action</h1>
@@ -25,7 +38,7 @@ const Card = () => {
             </span>
           ))}
         </div>
-        <h1 className="font-semibold text-2xl text-white">Spider man no way home</h1>
+        <h1 className="font-semibold text-2xl text-white">{title}</h1>
       </div>
     </div>
   );
