@@ -8,7 +8,7 @@ import { Carousel } from 'flowbite-react';
 const Index = () => {
   const scrollContainer = useRef<HTMLDivElement>(null);
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [topRatedFilms, setTopRatedFilms] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 5;
@@ -60,7 +60,7 @@ const Index = () => {
     setStartIndex(startIndex - itemsPerPage);
     setEndIndex(endIndex - itemsPerPage);
     Setcount(count - 1);
-    
+
     setEndpages(endPages - 20);
     if (endPages <= countPerPage) {
       setCountPerPage(countPerPage - 20);
@@ -146,34 +146,36 @@ const Index = () => {
             <span className="font-semibold">▶️</span>
           </button>
         </div>
-        <div className="mt-16 ">
-          <h1 className="text-2xl mb-5 mx-[74px] text-white"> Top Rated</h1>
+        <div>
+          <div className="mt-16 ">
+            <h1 className="text-2xl mb-5 mx-[74px] text-white"> Top Rated</h1>
 
-          <div className="flex gap-x-6 overflow-x-auto  p-4 max-w-screen-xl mx-auto">
-            {topRatedFilms.slice(startIndex, endIndex).map((item: any, index) => (
-              <Card
-                key={item.id}
-                img={item.poster_path}
-                title={item.title}
-                ratingFilm={item.release_date}
-              />
-            ))}
+            <div className="flex gap-x-6 overflow-x-auto  p-4 max-w-screen-xl mx-auto">
+              {topRatedFilms.slice(startIndex, endIndex).map((item: any, index) => (
+                <Card
+                  key={item.id}
+                  img={item.poster_path}
+                  title={item.title}
+                  ratingFilm={item.release_date}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <div className=" p-5 flex items-center ">
-          <button
-            onClick={handlePrevButtonClick}
-            disabled={count === 1}
-            className={`bg-blue-500  text-white font-bold py-2 px-4 rounded `}>
-            Previous
-          </button>
-          <h1 className="text-white mx-5">Page {count}</h1>
-          <button
-            onClick={handleNextButtonClick}
-            className={`bg-green-500 text-white font-bold py-2 px-4 rounded 
+          <div className=" p-5 flex items-center ">
+            <button
+              onClick={handlePrevButtonClick}
+              disabled={count === 1}
+              className={`bg-blue-500  text-white font-bold py-2 px-4 rounded `}>
+              Previous
+            </button>
+            <h1 className="text-white mx-5">Page {count}</h1>
+            <button
+              onClick={handleNextButtonClick}
+              className={`bg-green-500 text-white font-bold py-2 px-4 rounded 
             `}>
-            Next
-          </button>
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

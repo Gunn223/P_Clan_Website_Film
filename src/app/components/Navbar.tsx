@@ -69,7 +69,7 @@ const Navbar = () => {
               width={39}
               height={39}
             /> */}
-            <span className="text-white text-lg font-semibold">Mih& Film 18</span>
+            <span className="text-white text-lg font-semibold">Om Mih& Film </span>
           </div>
 
           <ul className="flex gap-x-10 text-white items-center">
